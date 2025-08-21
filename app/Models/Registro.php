@@ -2,23 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Controle extends Model
+class Registro extends Model
 {
-    use HasFactory;
     protected $fillable = [
-        'sensor_Id',
+        'sensor_id',
         'valor',
         'unidade',
         'data_hora'
     ];
+
     protected $casts = [
         'data_hora' => 'datetime'
     ];
 
-    public function sensor(){
-        return $this->belongsTo(sensor::class);
+    public function sensor()
+    {
+        return $this->belongsTo(Sensor::class);
     }
 }
