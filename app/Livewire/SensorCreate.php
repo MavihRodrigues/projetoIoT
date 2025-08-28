@@ -2,7 +2,8 @@
 
 namespace App\Livewire;
 
-use App\Livewire\SensorDashboard\Sensor;
+use App\Models\Ambiente;
+use App\Models\Sensor;
 use Livewire\Component;
 
 class SensorCreate extends Component
@@ -15,12 +16,16 @@ class SensorCreate extends Component
 
     protected $rules = [
         'codigo' => 'unique:sensor,codigo',
-        'tipo' => 'required'
+        'tipo' => 'required',
+        'descricao' => 'required',
+        'status' => 'required'
     ];
 
     protected $messages = [
         'codigo.unique' => 'Código incorreto',
-        'tipo.required' => 'O campo código é obrigatório'
+        'tipo.required' => 'O campo código é obrigatório',
+        'descricao.required' => 'O campo descrição é obrigatório',
+        'status.required' => 'O campo status é obrigatório'
     ];
 
     public function store()
@@ -40,6 +45,7 @@ class SensorCreate extends Component
 
     public function render()
     {
-        return view('livewire.sensor-create');
+        $ambientes = Ambiente::all();
+        return view('livewire.sensor-create', compact('ambientes'));
     }
 }
