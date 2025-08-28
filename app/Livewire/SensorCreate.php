@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class SensorCreate extends Component
 {
+    public $ambiente_id;
     public $codigo;
     public $tipo;
     public $descricao;
@@ -27,6 +28,7 @@ class SensorCreate extends Component
         $this->validate();
 
         Sensor::create([
+            'ambiente_id' => $this->ambiente_id,
             'codigo' => $this->codigo,
             'tipo' => $this->tipo,
             'descricao' => $this->descricao,
@@ -35,7 +37,6 @@ class SensorCreate extends Component
 
         session()->flash('success', 'Sensor cadastrado');
     }
-
 
     public function render()
     {
