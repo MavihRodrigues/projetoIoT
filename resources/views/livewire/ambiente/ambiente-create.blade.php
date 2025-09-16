@@ -15,7 +15,11 @@
             <form wire:submit.prevent="store">
                 <div class="mt-1 mb-3 ">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" wire:model.defer="nome">
+                    <input type="text" class="form-control" id="nome" name="nome" wire:model.defer="nome"
+                        placeholder="Sala de aula...">
+                    @error('nome')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
                 <div class="mb-3 ml-2">
                     <label for="text">Descrição</label>
@@ -31,15 +35,8 @@
                     </select>
                 </div>
 
-                <div class="mb-3 text-center">
-                    <button type="submit" class="btn text-light col-md-11" style="background-color: #D9931C">
-                        <strong>Cadastre-se</strong></button>
+                <input class="btn btn-info mt-2" type="submit" value="Cadastrar">
 
-                    <div class="text-center mb-2 mt-2">
-                        <p><strong>Já possui uma conta? <a class="text-light">Login</a><strong> </br>
-                                    <a href="#" class="text-light "><strong>Esqueci minha senha<strong></a></p>
-
-                    </div>
             </form>
         </div>
     </div>

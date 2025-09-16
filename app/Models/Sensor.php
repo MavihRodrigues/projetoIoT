@@ -16,11 +16,13 @@ class Sensor extends Model
         'status'
     ];
 
-    public function registros(){
-        return $this->hasMany(Sensor::class);
+    public function registros()
+    {
+        return $this->hasMany(Registro::class);
     }
 
-    public function ambiente(){
+    public function ambiente()
+    {
         return $this->belongsTo(Ambiente::class);
     }
 }

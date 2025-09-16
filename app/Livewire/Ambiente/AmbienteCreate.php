@@ -12,22 +12,27 @@ class AmbienteCreate extends Component
     public $descricao;
     public $status;
 
+    protected $rules = [
+        'nome' => 'required',
+    ];
+
+    protected $messages = [
+        'nome.required' => 'Este campo é obrigatório',
+    ];
+
     public function render()
     {
         return view('livewire.ambiente.ambiente-create');
     }
 
-    public function store(){
-        $user = User::create([
-            'name' => $this->nome,
+    public function store()
+    {
+        $this->validate();
+        Ambiente::create([
+            'nome' => $this->nome,
             'descricao' => $this->descricao,
             'status' => $this->status
         ]);
-
-        AmbienteCreate::create([
-            'nome' =>$this->nome,
-            'descricao' =>$this->descricao,
-            'status' =>$this->status,
-        ]);
+        //return redirect()->route('ambiente.index');
     }
 }

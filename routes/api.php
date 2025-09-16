@@ -1,8 +1,7 @@
 <?php
 
+use App\Livewire\Ambiente\AmbienteCreate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::post('/ambiente', [AmbienteCreate::class, "store"]);
