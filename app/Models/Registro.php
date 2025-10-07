@@ -13,7 +13,7 @@ class Registro extends Model
         'data_hora'
     ];
 
-    protected $casts = [
+    protected $cast = [
         'data_hora' => 'datetime'
     ];
 
