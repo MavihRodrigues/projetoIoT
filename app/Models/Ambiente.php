@@ -14,7 +14,8 @@ class Ambiente extends Model
         'status'
     ];
 
-    public function sensores(){
+    public function sensores()
+    {
         return $this->hasMany(Sensor::class);
     }
 }

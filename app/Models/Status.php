@@ -5,16 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sensor extends Model
+class Status extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'ambiente_id',
-        'codigo',
-        'tipo',
-        'descricao',
         'status'
     ];
+
+    if ($status == 0) {
+        echo "ON";
+
+    } else {
+     echo "OFF";
+}
 
     public function registros()
     {
@@ -24,10 +27,5 @@ class Sensor extends Model
     public function ambiente()
     {
         return $this->belongsTo(Ambiente::class);
-    }
-
-    public function status()
-    {
-        return $this->belongsTo(status::class);
     }
 }
