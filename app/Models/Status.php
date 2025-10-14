@@ -12,13 +12,6 @@ class Status extends Model
         'status'
     ];
 
-    if ($status == 0) {
-        echo "ON";
-
-    } else {
-     echo "OFF";
-}
-
     public function registros()
     {
         return $this->hasMany(Registro::class);

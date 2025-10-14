@@ -14,6 +14,7 @@ class RegistroController extends Controller
         $registros = Registro::orderBy('id', 'desc')->get();
         return response()->json($registros, 200);
     }
+    
     public function store(RegistroRequest $request)
     {
         $sensor = Sensor::where('codigo', $request->cod_sensor)->first();

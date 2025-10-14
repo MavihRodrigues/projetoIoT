@@ -7,22 +7,23 @@ use Illuminate\Http\Request;
 
 class SensorController extends Controller
 {
-    public function index()
-    {
-        $sensores = Sensor::all('codigo', 'descricao', 'status');
-        return response()->json($sensores, 200);
-    }
-
-    public function showStatus(Request $request)
+    public function show(Sensor $request)
     {
         $sensor = Sensor::where('codigo', $request->codigo)->first();
-        
+
         if (!$sensor) {
-            return response()->json(['error' => 'sem status'], 404);
+            return response()->json(['error' => 'sensor não encontrado'], 404);
         }
         return response()->json([
-            'success',
-            'data' => $sensor->status
+            'success' => 'registro salvo com sucesso',
+            'data' => $sensor
         ], 201);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $sensor = Sensor::find($id);
+        $sensor->update($request->all());
+        return response()->json($sensor, 200);
     }
 }

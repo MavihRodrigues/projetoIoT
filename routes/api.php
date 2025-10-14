@@ -11,6 +11,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/ambiente', [AmbienteCreate::class, "store"]);
 Route::post('/registro/create', [RegistroController::class, "store"]);
-Route::get('/dispositivos/status', [SensorController::class, "index"]);
+Route::get('/registro/show', [SensorController::class, "show"]);
 Route::get('/dispositivo/status', [SensorController::class, "showStatus"]);
 Route::get('/sensor', [SensorController::class, "index"]);
