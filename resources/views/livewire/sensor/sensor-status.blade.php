@@ -1,62 +1,47 @@
-<div class="mt-5">
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-hover table-info">
-                <thead>
-                    <tr>
-                        <th class="text-success">ID</th>
-                        <th class="text-success">Valor</th>
-                        <th class="text-success">Unidade</th>
-                        <th class="text-success">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
+<div class="min-vh-100 d-flex flex-column justify-content-start align-items-center"
+    style="background-color: #e6e6e6; padding-top: 60px; padding-bottom: 40px;">
 
-                </tbody>
-            </table>
+    <h2 class="text-white fw-bold mb-4" style="text-transform: uppercase;">
+        Lista de Status
+    </h2>
 
-            <!-- Modal de Exclusão -->
-            <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Excluir</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Tem certeza que deseja excluir??</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-danger" wire:click="excluir">Excluir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="d-flex justify-content-between flex-wrap gap-3 mb-3" style="max-width: 900px; width: 100%;">
+        <input type="text" wire:model.debounce.300ms="search" class="form-control" placeholder="Status...">
 
-        </div>
+        <select wire:model="perPage" class="form-select" style="max-width: 200px;">
+            <option value="10">10 por página</option>
+            <option value="25">25 por página</option>
+        </select>
+
+        <a href="{{ route('statuses.create') }}" class="btn btn-outline-light fw-bold">
+        </a>
     </div>
 
-    <!-- Modal de Visualização -->
-    <div wire:ignore.self class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Detalhes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p><strong>ID</strong>{{ $sensorId }}</p>
-                    <p><strong>Valor</strong>{{ $valor }}</p>
-                    <p><strong>Unidade</strong> {{ $unidade }}</p>
-                    <p><strong>Status</strong> {{ $status }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                </div>
-            </div>
+    @if (session()->has('message'))
+        <div class="alert alert-success text-center fw-semibold w-100" style="max-width: 900px;">
+            {{ session('message') }}
         </div>
+    @endif
+
+    <div class="table-responsive" style="max-width: 900px; width: 100%;">
+        <table class="table table-striped table-bordered align-middle text-center bg-white rounded-3 overflow-hidden">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-white">Código</th>
+                    <th class="text-white">Tipo</th>
+                    <th class="text-white">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($statuses as $t)
+                    <tr>
+                        <td>{{ $t->codigo }}</td>
+                        <td>{{ $t->tipo }}</td>
+                        <td>{{ $t->status }}</td>
+                    </tr>
+                @empty
+                @endforelse
+            </tbody>
+        </table>
     </div>
 </div>

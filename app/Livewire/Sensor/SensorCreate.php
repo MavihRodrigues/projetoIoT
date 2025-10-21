@@ -1,43 +1,43 @@
 <?php
 
-namespace App\Livewire\Ambiente;
+namespace App\Livewire\Sensor;
 
-use App\Models\Ambiente;
-use App\Models\User;
+use App\Models\Sensor;
 use Livewire\Component;
 
-class AmbienteCreate extends Component
+class SensorCreate extends Component
 {
     public $nome;
+    public $codigo;
+    public $tipo;
     public $descricao;
     public $status;
 
     protected $rules = [
         'nome' => 'required',
+        'tipo' => 'required',
         'status' => 'required',
     ];
 
     protected $messages = [
         'nome.required' => 'Este campo é obrigatório',
         'status.required' => 'Este campo é obrigatório',
+        'tipo.required' => 'Este campo é obrigatório',
     ];
 
     public function store()
     {
         $this->validate();
-        Ambiente::create([
+        Sensor::create([
             'nome' => $this->nome,
-            'descricao' => $this->descricao,
+            'tipo' => $this->tipo,
             'status' => $this->status
         ]);
-
-        session()->flash('success', 'Cadastro Realizado, espere aprovação para entrar');
-
-        return redirect()->route('ambiente.index');
+        return redirect()->route('sensor.index');
     }
-    
+
     public function render()
     {
-        return view('livewire.ambiente.ambiente-create');
+        return view('livewire.sensor.sensor-create');
     }
 }

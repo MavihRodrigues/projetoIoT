@@ -22,7 +22,7 @@ class SensorController extends Controller
 
     public function update(Request $request, $id)
     {
-        $sensor = Sensor::find($id);
+        $sensor = Sensor::findOrFail($id);
         $sensor->update($request->all());
         return response()->json($sensor, 200);
     }

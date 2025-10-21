@@ -1,4 +1,4 @@
-<div class="mt-5">
+<div class="mt-5  ">
 
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -7,18 +7,19 @@
         </div>
     @endif
 
+    <h3 class="title text-success mt-5 text-center"><strong>Editar</strong></h3>
+
     <div class="font-family-roboto title text-black col-md-5 card mx-auto border p-3 opacity-100 shadow-lg text-light">
-        <h3 class="title text-success mt-5 text-center"><strong>Editar</strong></h3>
-        <form wire:submit.prevent="editarAmbiente">
+        <form wire:submit.prevent="salvar">
             <div class="mt-1 mb-3 ">
-                <label for="nome" class="form-label">Nome</label>
+                <label for="nome" class="form-label">Nome</label> {{-- placeholder: colocar um texto de exemplo
+                dentro de uma caixa de texto --}}
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: Maria"
                     wire:model.defer="nome">
             </div>
             <div class="mb-3 ml-2">
-                <label for="descricao">Descrição</label>
-                <input type="descricao" name="descricao" id="descricao" class="form-control"
-                    wire:model.defer="descricao">
+                <label for="tipo">Tipo</label>
+                <input type="tipo" name="tipo" id="tipo" class="form-control" wire:model.defer="tipo">
             </div>
 
             <div class="mb-3">

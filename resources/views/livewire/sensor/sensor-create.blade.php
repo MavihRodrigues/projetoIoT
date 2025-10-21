@@ -8,21 +8,20 @@
     @endif
 
     <div class="font-family-roboto col-md-5 card mx-auto opacity-100 shadow-lg text-light"
-        style="background-color: rgb(43, 118, 72)">
-        <h3 class="card-title mt-5 text-center"><strong>Cadastro de Ambiente</strong></h3>
+        style="background-color: rgb(99, 112, 175)">
+        <h3 class="card-title mt-5 text-center"><strong>Cadastro de Sensores</strong></h3>
 
         <div class="card-body mx-4">
             <form wire:submit.prevent="store">
                 <div class="mt-1 mb-3 ">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" wire:model.defer="nome"
-                        placeholder="Sala de aula...">
+                    <input type="text" class="form-control" id="nome" name="nome" wire:model.defer="nome">
                     @error('nome')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="mb-3 ml-2">
-                    <label for="text">Descrição</label>
+                    <label for="text">Tipo</label>
                     <input type="text" name="text" id="text" class="form-control" wire:model.defer="text">
                 </div>
 
@@ -34,13 +33,8 @@
                         <option value="2">Inativo</option>
                     </select>
                 </div>
-
-                <div class="mb-3 text-center">
-                    <button type="submit" class="btn text-light col-md-11" style="background-color: #D9931C">
-                        <strong>Cadastrar</strong></button>
-                </div>
+                <input class="btn btn-info mt-2" type="submit" value="Cadastrar">
             </form>
         </div>
     </div>
-
 </div>

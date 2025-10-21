@@ -9,6 +9,7 @@ class Ambiente extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'id',
         'nome',
         'descricao',
         'status'
