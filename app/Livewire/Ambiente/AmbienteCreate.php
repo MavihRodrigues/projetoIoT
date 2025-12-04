@@ -33,6 +33,14 @@ class AmbienteCreate extends Component
             'descricao' => $this->descricao,
             'status' => $this->status
         ]);
-        //return redirect()->route('ambiente.index');
+
+        session()->flash('success', 'Cadastro Realizado, espere aprovação para entrar');
+
+        return redirect()->route('ambientes.index');
+    }
+    
+    public function render()
+    {
+        return view('livewire.ambiente.ambiente-create');
     }
 }

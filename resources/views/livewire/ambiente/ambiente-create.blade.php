@@ -7,8 +7,8 @@
         </div>
     @endif
 
-    <div class="font-family-roboto col-md-5 card mx-auto  opacity-100 shadow-lg text-light"
-        style="background-color: rgb(99, 112, 175)">
+    <div class="font-family-roboto col-md-5 card mx-auto opacity-100 shadow-lg text-light"
+        style="background-color: rgb(43, 118, 72)">
         <h3 class="card-title mt-5 text-center"><strong>Cadastro de Ambiente</strong></h3>
 
         <div class="card-body mx-4">
@@ -35,8 +35,10 @@
                     </select>
                 </div>
 
-                <input class="btn btn-info mt-2" type="submit" value="Cadastrar">
-
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn text-light col-md-11" style="background-color: #D9931C">
+                        <strong>Cadastrar</strong></button>
+                </div>
             </form>
         </div>
     </div>
