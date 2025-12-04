@@ -8,7 +8,7 @@
     @endif
 
     <div class="font-family-roboto col-md-5 card mx-auto opacity-100 shadow-lg text-light"
-        style="background-color: rgb(43, 118, 72)">
+        style="background-color: rgb(13, 86, 142)">
         <h3 class="card-title mt-5 text-center"><strong>Cadastro de Ambiente</strong></h3>
 
         <div class="card-body mx-4">

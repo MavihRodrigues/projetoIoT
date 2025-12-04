@@ -20,11 +20,6 @@ class AmbienteCreate extends Component
         'nome.required' => 'Este campo é obrigatório',
     ];
 
-    public function render()
-    {
-        return view('livewire.ambiente.ambiente-create');
-    }
-
     public function store()
     {
         $this->validate();

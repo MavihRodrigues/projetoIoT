@@ -20,7 +20,7 @@ class SensorSeeder extends Seeder
 
         for($i=1; $i<=40; $i++){
             Sensor::create([
-                'codigo' => 'S'.$i, 
+                'codigo' => 'A'.$i, 
                 'tipo' => $faker->randomElement([
                     'luminosidade',
                     'rfid',
